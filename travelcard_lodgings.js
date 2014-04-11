@@ -51,9 +51,9 @@ var bureauChart = dc.pieChart("#bureau-chart");
 //```
 
 var dataHandle;
-
+$.blockUI({ message: '<h1> Loading...</h1>' });
 d3.json("http://54.187.35.158/mobrise/v0/travelcard/lodgings", function (data) {
-
+$.unblockUI();
     dataHandle = data;
 			var debug = true;
             /* since its a csv file we need to format the data a bit */

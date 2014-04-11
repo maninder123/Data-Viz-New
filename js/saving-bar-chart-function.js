@@ -106,7 +106,7 @@ function draw_saving_bar_chart() {
                     return x(d.letter) + x.rangeBand() / 2;
                 })
                 .attr("text-anchor", "middle")
-                .text(function(d) { return d.frequency; })
+                .text(function(d) { return Math.round(d.frequency) + ' $'; })
                 ;
         });
     function type(d) {

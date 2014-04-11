@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>dc.js - Dimensional Charting Javascript Library</title>
+
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/dc.css"/>
+
+    <link rel="stylesheet" type="text/css" href='highlighter/shCore.css'/>
+    <link rel="stylesheet" type="text/css" href='highlighter/shThemeDefault.css'/>
+
+    <style>
+        #daily-volume-chart g.y {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+<h2>Reservations Flight Data</h2>
+<p>&nbsp;<p>
+
+<!-- <div class="row">
+
+    <div id="yearly-bubble-chart" class="dc-chart">
+        <strong>Yearly Performance</strong> (radius: fluctuation/index ratio, color: gain/loss)
+        <a class="reset" href="javascript:yearlyBubbleChart.filterAll();dc.redrawAll();"
+           style="display: none;">reset</a>
+
+        <div class="clearfix"></div>
+    </div>
+</div> -->
+<div class="row">
+     <div id="us-chart">
+        <strong>Destination States</strong>
+        <a class="reset" href="javascript:usChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+        <span class="reset" style="display: none;"> | Current filter: <span class="filter"></span></span>
+
+        <div class="clearfix"></div>
+    </div>
+</div>
+<p>&nbsp;<p>
+<div class="row">
+<!--     <div id="gain-loss-chart">
+        <strong>Days by Gain/Loss</strong>
+        <a class="reset" href="javascript:gainOrLossChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+
+        <div class="clearfix"></div>
+    </div> -->
+
+     <div id="quarter-chart">
+        <strong>Quarters</strong>
+        <a class="reset" href="javascript:quarterChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+
+        <div class="clearfix"></div>
+    </div>
+
+    <div id="day-of-week-chart">
+        <strong>Day of Week</strong>
+        <a class="reset" href="javascript:dayOfWeekChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+
+        <div class="clearfix"></div>
+    </div>
+
+    <div id="online-chart">
+        <strong>Bookings</strong>
+        <a class="reset" href="javascript:onlineChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+
+        <div class="clearfix"></div>
+    </div>
+
+<!--     <div id="states-chart">
+        <strong>States</strong>
+        <a class="reset" href="javascript:statesChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+
+        <div class="clearfix"></div>
+    </div> -->
+    <div id="carrier-chart">
+        <strong>Top Carriers</strong>
+        <a class="reset" href="javascript:carrierChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+
+        <div class="clearfix"></div>
+    </div>
+
+<p>&nbsp;<p>
+
+    <div id="daysbetween-chart">
+        <strong>Days between Reservation and Departure</strong>
+        <span class="reset" style="display: none;">range: <span class="filter"></span></span>
+        <a class="reset" href="javascript:daysBetweenChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+
+        <div class="clearfix"></div>
+    </div>
+
+</div>
+
+<p>&nbsp;<p>&nbsp;
+
+<div class="row">
+    <div id="daily-move-chart">
+        <strong>Monthly Transaction Amount & Volume Chart</strong>
+        <span class="reset" style="display: none;">range: <span class="filter"></span></span>
+        <a class="reset" href="javascript:moveChart.filterAll();volumeChart.filterAll();dc.redrawAll();"
+           style="display: none;">reset</a>
+
+        <div class="clearfix"></div>
+    </div>
+</div>
+
+ <div class="row">
+    <div id="daily-volume-chart">
+    </div>
+    <p class="muted pull-right" style="margin-right: 15px;">select a time range to zoom in</p>
+</div>
+
+<div class="row">
+    <div>
+        <div class="dc-data-count">
+            <span class="filter-count"></span> selected out of <span class="total-count"></span> records | <a
+                href="javascript:dc.filterAll(); dc.renderAll();">Reset All</a>
+        </div>
+    </div>
+    <table class="table table-hover dc-data-table">
+        <thead>
+        <tr class="header">
+            <th>Date</th>
+            <th>Transaction Amount</th>
+            <th>Airline</th>
+            <th>Origin</th>
+			<th>Destination</th>
+        </tr>
+        </thead>
+    </table>
+</div>
+
+</div>
+
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/d3.js"></script>
+<script type="text/javascript" src="js/crossfilter.js"></script>
+<script type="text/javascript" src="js/dc.js"></script>
+
+<script type="text/javascript" src="reservations_flights.js"></script>
+
+</body>
+</html>

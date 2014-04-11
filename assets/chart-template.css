@@ -1,0 +1,109 @@
+/**
+================================================================================
+---------------------------    CSS FOR BAR CHART      --------------------------
+================================================================================
+*/
+.bar {
+  fill: #98DF8A;
+}
+
+.bar:hover {
+  fill: brown;
+}
+
+.axis {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
+/**
+================================================================================
+---------------------------    CSS FOR AREA LINE CHART     ---------------------
+================================================================================
+*/
+/* 
+    Document   : d3LineChart
+    Created on : 7 Mar, 2013, 12:24:11 PM
+    Author     : maninder
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/*.data-line {
+    stroke: #3672E3;
+    stroke-width: 2.5;
+    fill: none;
+    stroke-dasharray: 0;
+}
+.data-line_2 {
+    stroke: #A6A6A6;
+    stroke-width: 2;
+    fill: none;
+    stroke-dasharray: 0;
+}
+
+path {
+    stroke: #eee;
+    stroke-width: 0;
+    stroke-dasharray: 0;
+    fill: none;
+}
+
+.area {
+    fill: #62A1D9;
+    opacity:0.15;
+}
+
+.area1{
+    fill: #B6B6B6;
+    opacity:0.15;
+    
+}
+
+text {
+    font-family: Arial;
+    font-size: 8pt;
+    fill: #858C97;
+    font-weight: bold;
+}
+
+svg.viz g.xTick line {
+    stroke: #F5F5F5  ;
+    /*stroke-width: 5;*/
+    /* stroke-dasharray: 3 3; */
+    fill: none;
+}
+
+.alternateStock{
+     stroke-width: 0.5 !important;
+}
+
+.yTick line{
+      stroke-width: 0;
+}
+
+.data-point {
+    stroke: #3672E3;
+    stroke-width: 3;
+    fill: #FFF;
+}
+
+.data-point_2 {
+    stroke: #A6A6A6;
+    stroke-width: 3;
+    fill: #FFF;
+}
+
+.line-chart-wrapper {
+    margin: 0;
+}*/

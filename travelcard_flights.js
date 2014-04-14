@@ -64,7 +64,7 @@ $.unblockUI();
     "July", "August", "September", "October", "November", "December" ];
 
             data.forEach(function (e) {
-                e.dd = dateFormat.parse(e.transposting_dateid);
+                e.dd = dateFormat.parse(e.dateid);
                 e.month = d3.time.month(e.dd); // pre-calculate month for better performance
             });
 
@@ -78,7 +78,7 @@ $.unblockUI();
             });
 
             var destStateDim = ndx.dimension(function (d) {
-                return d.destination_state;
+                return d.merch_state;
             });
 
             var destStateSum = destStateDim.group().reduceCount();

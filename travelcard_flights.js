@@ -52,7 +52,7 @@ var bureauChart = dc.pieChart("#bureau-chart");
 
 var dataHandle;
 $.blockUI({ message: '<h1> Loading...</h1>' });
-d3.json("http://54.187.35.158/mobrise/v0/travelcard/flights", function (data) {
+d3.json("http://54.187.35.158/mobrise/v0/travelcard/flights?limit=1000", function (data) {
 $.unblockUI();
     dataHandle = data;
 			var debug = true;

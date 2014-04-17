@@ -86,11 +86,11 @@ $.unblockUI();
             var topDestStateValue = destStateDim.group().top(1)[0].value;
 
             var bureauDim = ndx.dimension(function (d) {
-                return d.agency_bureau_name;
+                return d.bureau;
             });
 
             var bureauSum = bureauDim.group().reduceSum(function (d) {
-                if (d.agency_bureau_name == "General Services Administration - Other") {
+                if (d.bureau == "General Services Administration - Other") {
                     return 0;
                 } else {
                     return 1;
@@ -138,7 +138,7 @@ $.unblockUI();
             var monthSum = monthDim.group().reduceCount();
 
             var monthTransactions = monthDim.group().reduceSum(function (d) {
-                return d.transaction_amount;
+                return d.amount;
             });
 //             var monthlyMoveGroup = moveMonths.group().reduceSum(function (d) {
 //                 return 1;
@@ -165,18 +165,18 @@ $.unblockUI();
 //             );
 
             var gainOrLoss = ndx.dimension(function (d) {
-                return d.transaction_amount > 0 ? "Charge" : "Refund";
+                return d.amount > 0 ? "Charge" : "Refund";
             });
              var gainOrLossGroup = gainOrLoss.group().reduceCount();
 			
 			var carrier = ndx.dimension(function (d) {
-				return d.issuing_carrier;
+				return d.carrier;
 			});
 			
 			var carrierGroup = carrier.group().reduceCount();
 
             var statesDim = ndx.dimension(function (d) {
-                return d.merchant_state;
+                return d.merch_state;
             });
 
             var statesGroup = statesDim.group().reduceCount();
@@ -487,16 +487,16 @@ $.unblockUI();
                             return '$0';
                         },
                         function (d) {
-                            return d.agency_name;
+                            return d.agency;
                         },
                         function (d) {
-                            return d.agency_bureau_name;
+                            return d.bureau;
                         },
                         function (d) {
-                            return d.originating_city_airport_code;
+                            return d.ori_apt;
                         },
                         function (d) {
-                            return d.destination_city_airport_code;
+                            return d.dest_apt;
                         }
                     ])
                     .sortBy(function (d) {

@@ -481,7 +481,10 @@ $.unblockUI();
                             return d.dd.getFullYear() + "/" + (d.dd.getMonth() + 1) + "/" + d.dd.getDate();
                         },
                         function (d) {
-                            return "$" + numberFormat(d.transaction_amount);
+                            if(numberFormat(d.amount) != 'NaN')
+                            return "$" + numberFormat(d.amount);
+                        else
+                            return '$0';
                         },
                         function (d) {
                             return d.agency_name;

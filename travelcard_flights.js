@@ -52,7 +52,7 @@ var bureauChart = dc.pieChart("#bureau-chart");
 
 var dataHandle;
 $.blockUI({ message: '<h1> Loading...</h1>' });
-d3.json("http://54.187.35.158/mobrise/v0/travelcard/flights?limit=1000", function (data) {
+d3.json("http://54.187.35.158/mobrise/v0/travelcard/flights", function (data) {
 $.unblockUI();
     dataHandle = data;
 			var debug = true;
@@ -86,11 +86,11 @@ $.unblockUI();
             var topDestStateValue = destStateDim.group().top(1)[0].value;
 
             var bureauDim = ndx.dimension(function (d) {
-                return d.bureau;
+                return d.agency_bureau_name;
             });
 
             var bureauSum = bureauDim.group().reduceSum(function (d) {
-                if (d.bureau == "General Services Administration - Other") {
+                if (d.agency_bureau_name == "General Services Administration - Other") {
                     return 0;
                 } else {
                     return 1;
@@ -138,7 +138,7 @@ $.unblockUI();
             var monthSum = monthDim.group().reduceCount();
 
             var monthTransactions = monthDim.group().reduceSum(function (d) {
-                return d.amount;
+                return d.transaction_amount;
             });
 //             var monthlyMoveGroup = moveMonths.group().reduceSum(function (d) {
 //                 return 1;
@@ -165,18 +165,18 @@ $.unblockUI();
 //             );
 
             var gainOrLoss = ndx.dimension(function (d) {
-                return d.amount > 0 ? "Charge" : "Refund";
+                return d.transaction_amount > 0 ? "Charge" : "Refund";
             });
              var gainOrLossGroup = gainOrLoss.group().reduceCount();
 			
 			var carrier = ndx.dimension(function (d) {
-				return d.carrier;
+				return d.issuing_carrier;
 			});
 			
 			var carrierGroup = carrier.group().reduceCount();
 
             var statesDim = ndx.dimension(function (d) {
-                return d.merch_state;
+                return d.merchant_state;
             });
 
             var statesGroup = statesDim.group().reduceCount();
@@ -481,22 +481,19 @@ $.unblockUI();
                             return d.dd.getFullYear() + "/" + (d.dd.getMonth() + 1) + "/" + d.dd.getDate();
                         },
                         function (d) {
-                            if(numberFormat(d.amount) != 'NaN')
-                            return "$" + numberFormat(d.amount);
-                        else
-                            return '$0';
+                            return "$" + numberFormat(d.transaction_amount);
                         },
                         function (d) {
-                            return d.agency;
+                            return d.agency_name;
                         },
                         function (d) {
-                            return d.bureau;
+                            return d.agency_bureau_name;
                         },
                         function (d) {
-                            return d.ori_apt;
+                            return d.originating_city_airport_code;
                         },
                         function (d) {
-                            return d.dest_apt;
+                            return d.destination_city_airport_code;
                         }
                     ])
                     .sortBy(function (d) {
